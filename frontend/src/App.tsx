@@ -1,7 +1,8 @@
-import { BrowserRouter, Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import { ToastProvider } from './components/ui/Toast';
 import { CheckoutPage } from './pages/Checkout/CheckoutPage';
+import { LandingPage } from './pages/Landing/LandingPage';
 import { MySubscriptionsPage } from './pages/MySubscriptions/MySubscriptionsPage';
 import { ProductsPage } from './pages/Products';
 import { ProductFormPage } from './pages/Products/ProductFormPage';
@@ -65,7 +66,7 @@ export default function App() {
           <Route path="/products/new" element={<ProductFormPage />} />
           <Route path="/products/:id/edit" element={<ProductFormPage />} />
           <Route path="/products" element={<ProductsPage />} />
-          <Route path="/" element={<Navigate to="/subscriptions" replace />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </ToastProvider>
