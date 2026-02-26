@@ -320,3 +320,14 @@ Os resultados do pagamento (aprovado, recusado) deveriam, em um cenário ideal, 
 ### Suporte a múltiplas moedas (Multi-currency)
 
 O campo `currency` (moeda) existe dentro dos produtos e transações porém apontam fixas para BRL. A base do trabalho no `productSnapshot` e `product` possui estes tipos inseridos e permitiria dar suporte a isso sem modelar nem alterar base de banco de dados, configurando moedas nos roteamentos ou sistema de suporte de câmbios futuros se necessário.
+
+## Considerações finais
+
+O meu objetivo nesse teste era de entregar um protótipo com as funcionalidades pedidas na descrição do documento.
+Além da parte do código, foquei também na UX/UI para que pudesse ser apresentado não somente para quem é técnico, mas também para pessoas não-técnicas.
+Obviamente teriam inúmeras coisas à serem melhoradas além das que já citei acima, como alguns types que não estavam 100% corretos, as partes de lint, alguns componentes utilizados de bibliotecas que já estavam deprecated, tinha muita coisa pra polir. Mas me sinto satisfeito com o resultado e acredito ter feito um bom trabalho dentro do curto espaço de tempo que tinha.
+Minha visão como desenvolvedor é de unir a habilidade técnica com as expectativas do produto.
+Afinal, construímos software para que sejam vendidos e na minha opinião é crucial que um desenvolvedor tenha visão de produto e não só de tecnologia.
+
+Independente do resultado, deixo aqui o meu agradecimento ao Léo e o Jeyson que se disporam a me ouvir e a ver o que tenho pra mostrar no código.
+Obrigado!
