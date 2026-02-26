@@ -1,5 +1,5 @@
-import { Product } from '../types/product.types';
-import client from './client';
+import type { Product } from "../types/product.types";
+import client from "./client";
 
 export async function getProduct(id: string): Promise<Product> {
   const { data } = await client.get<Product>(`/products/${id}`);
@@ -11,6 +11,9 @@ export async function getProducts(params?: {
   page?: number;
   limit?: number;
 }): Promise<{ data: Product[]; total: number }> {
-  const { data } = await client.get<{ data: Product[]; total: number }>('/products', { params });
+  const { data } = await client.get<{ data: Product[]; total: number }>(
+    "/products",
+    { params },
+  );
   return data;
 }
