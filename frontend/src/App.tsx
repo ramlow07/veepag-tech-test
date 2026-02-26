@@ -1,10 +1,19 @@
 import { BrowserRouter, Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
+import { ToastProvider } from './components/ui/Toast';
 import { CheckoutPage } from './pages/Checkout/CheckoutPage';
 import { MySubscriptionsPage } from './pages/MySubscriptions/MySubscriptionsPage';
+import { ProductsPage } from './pages/Products';
+import { ProductFormPage } from './pages/Products/ProductFormPage';
+import { SubscriptionDetailPage } from './pages/SubscriptionDetail';
 
 function NavBar() {
   const { pathname } = useLocation();
+
+  function isActive(prefix: string) {
+    return pathname === prefix || pathname.startsWith(prefix + '/');
+  }
+
   return (
     <header className="navbar">
       <div className="navbar-inner">
@@ -15,9 +24,15 @@ function NavBar() {
         <nav className="navbar-links">
           <Link
             to="/subscriptions"
-            className={`navbar-link${pathname === '/subscriptions' ? ' navbar-link--active' : ''}`}
+            className={`navbar-link${isActive('/subscriptions') ? ' navbar-link--active' : ''}`}
           >
-            Minhas Assinaturas
+            Assinaturas
+          </Link>
+          <Link
+            to="/products"
+            className={`navbar-link${isActive('/products') ? ' navbar-link--active' : ''}`}
+          >
+            Produtos
           </Link>
         </nav>
       </div>
@@ -41,13 +56,19 @@ function NotFound() {
 export default function App() {
   return (
     <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/checkout/:productId" element={<CheckoutPage />} />
-        <Route path="/subscriptions" element={<MySubscriptionsPage />} />
-        <Route path="/" element={<Navigate to="/subscriptions" replace />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <ToastProvider>
+        <NavBar />
+        <Routes>
+          <Route path="/checkout/:productId" element={<CheckoutPage />} />
+          <Route path="/subscriptions/:id" element={<SubscriptionDetailPage />} />
+          <Route path="/subscriptions" element={<MySubscriptionsPage />} />
+          <Route path="/products/new" element={<ProductFormPage />} />
+          <Route path="/products/:id/edit" element={<ProductFormPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/" element={<Navigate to="/subscriptions" replace />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </ToastProvider>
     </BrowserRouter>
   );
 }
