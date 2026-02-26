@@ -60,7 +60,7 @@ export function CheckoutPage() {
   /* ── Loading ── */
   if (state.status === "loading") {
     return (
-      <main className="page page-narrow">
+      <main className="page page-narrow page-enter">
         <div className="skeleton-block" />
         <div className="skeleton-block skeleton-block--short" />
       </main>
@@ -87,7 +87,7 @@ export function CheckoutPage() {
   if (state.status === "result") {
     const approved = state.transaction.status === TransactionStatus.APPROVED;
     return (
-      <main className="page page-narrow">
+      <main className="page page-narrow page-enter">
         <Card
           className={`result-card result-card--${approved ? "approved" : "declined"}`}
         >
@@ -139,7 +139,7 @@ export function CheckoutPage() {
     state.status === "product_loaded" ? state.submitError : undefined;
 
   return (
-    <main className="page page-narrow">
+    <main className="page page-narrow page-enter">
       <div className="section-header">
         <h1>Checkout</h1>
         <p>Preencha os dados abaixo para assinar o produto.</p>

@@ -47,7 +47,7 @@ export function MySubscriptionsPage() {
     state.status === "cancelling" ? state.cancellingId : null;
 
   return (
-    <main className="page">
+    <main className="page page-enter">
       <div className="section-header">
         <h1>Minhas Assinaturas</h1>
         <p>Consulte e gerencie suas assinaturas pelo CPF.</p>
@@ -125,13 +125,14 @@ export function MySubscriptionsPage() {
                 ? "assinatura encontrada"
                 : "assinaturas encontradas"}
             </p>
-            {state.subscriptions.map((sub) => (
-              <SubscriptionCard
-                key={sub._id}
-                subscription={sub}
-                cancelling={cancellingId === sub._id}
-                onCancel={handleCancel}
-              />
+            {state.subscriptions.map((sub, i) => (
+              <div key={sub._id} className="card-enter" style={{ animationDelay: `${Math.min(i, 5) * 60}ms` }}>
+                <SubscriptionCard
+                  subscription={sub}
+                  cancelling={cancellingId === sub._id}
+                  onCancel={handleCancel}
+                />
+              </div>
             ))}
           </div>
         )}

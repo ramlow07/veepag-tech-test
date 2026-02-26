@@ -194,16 +194,24 @@ Combinações inválidas de estados (como por exemplo "submitting without a prod
 ```mermaid
 stateDiagram-v2
     [*] --> PENDING: [POST /subscriptions]
-    note right of PENDING: Criada imediatamente;<br>pagamento ainda não processado
+    note right of PENDING
+        Criada imediatamente;
+        pagamento ainda não processado
+    end note
 
     PENDING --> ACTIVE: Pagamento APROVADO
     PENDING --> PAYMENT_FAILED: Pagamento RECUSADO
 
-    note right of PAYMENT_FAILED: Terminal;<br>tentar novamente = nova assinatura
+    note right of PAYMENT_FAILED
+        Terminal; tentar
+        novamente = nova assinatura
+    end note
 
     ACTIVE --> CANCELLED: PATCH /cancel
 
-    note right of CANCELLED: Terminal
+    note right of CANCELLED
+        Terminal
+    end note
 ```
 
 **Regras de transição dos estados:**

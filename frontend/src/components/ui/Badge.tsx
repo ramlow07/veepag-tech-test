@@ -10,6 +10,7 @@ interface BadgeProps {
 const labelMap: Record<string, string> = {
   PENDING:        'Pendente',
   ACTIVE:         'Ativo',
+  INACTIVE:       'Inativo',
   PAYMENT_FAILED: 'Falha no Pagamento',
   CANCELLED:      'Cancelado',
   APPROVED:       'Aprovado',
@@ -19,6 +20,7 @@ const labelMap: Record<string, string> = {
 const classMap: Record<string, string> = {
   PENDING:        'badge badge--info',
   ACTIVE:         'badge badge--success',
+  INACTIVE:       'badge badge--muted',
   PAYMENT_FAILED: 'badge badge--danger',
   CANCELLED:      'badge badge--muted',
   APPROVED:       'badge badge--success',
