@@ -1,0 +1,106 @@
+/* ── Design System ─────────────────────────────────────────── */
+:root {
+  /* Palette */
+  --bg:           #0b0f14;
+  --surface:      #131920;
+  --surface-alt:  #1a2230;
+  --border:       #1f2d3d;
+  --border-light: #243347;
+
+  /* Text */
+  --text-primary:   #dce8f5;
+  --text-secondary: #6b8299;
+  --text-muted:     #3e5570;
+
+  /* Accent — green */
+  --accent:       #22c55e;
+  --accent-dim:   rgba(34, 197, 94, 0.12);
+  --accent-hover: #4ade80;
+
+  /* Semantic */
+  --success:      #2ea84f;
+  --success-dim:  rgba(46, 168, 79, 0.12);
+  --danger:       #e03e3e;
+  --danger-dim:   rgba(224, 62, 62, 0.12);
+  --warning:      #c9841a;
+  --warning-dim:  rgba(201, 132, 26, 0.12);
+  --info:         #3d8fdb;
+  --info-dim:     rgba(61, 143, 219, 0.12);
+
+  /* Typography */
+  --font-sans: 'Sora', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Spacing */
+  --radius-sm: 4px;
+  --radius:    8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration: 180ms;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  min-width: 320px;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Typography ────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ── Links ─────────────────────────────────────────────────── */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--duration) var(--ease);
+}
+a:hover { color: var(--accent-hover); }
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── Selection ─────────────────────────────────────────────── */
+::selection {
+  background: var(--accent-dim);
+  color: var(--accent-hover);
+}
