@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Badge } from "../../../components/ui/Badge";
 import { Button } from "../../../components/ui/Button";
 import { Card } from "../../../components/ui/Card";
@@ -96,33 +97,43 @@ export function SubscriptionCard({
 
       <TransactionHistory subscriptionId={subscription._id} />
 
-      {/* Cancel action */}
-      {canCancel && (
-        <div className="sub-card__actions">
-          {confirming && (
-            <span className="sub-card__confirm-text">
-              Confirma o cancelamento?
-            </span>
-          )}
-          <Button
-            variant={confirming ? "danger" : "ghost"}
-            size="sm"
-            loading={cancelling}
-            onClick={handleCancelClick}
-          >
-            {confirming ? "Sim, cancelar" : "Cancelar assinatura"}
-          </Button>
-          {confirming && (
+      {/* Actions */}
+      <div className="sub-card__actions">
+        {canCancel && (
+          <>
+            {confirming && (
+              <span className="sub-card__confirm-text">
+                Confirma o cancelamento?
+              </span>
+            )}
             <Button
-              variant="ghost"
+              variant={confirming ? "danger" : "ghost"}
               size="sm"
-              onClick={() => setConfirming(false)}
+              loading={cancelling}
+              onClick={handleCancelClick}
             >
-              Não
+              {confirming ? "Sim, cancelar" : "Cancelar assinatura"}
             </Button>
-          )}
-        </div>
-      )}
+            {confirming && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setConfirming(false)}
+              >
+                Não
+              </Button>
+            )}
+          </>
+        )}
+        <Link
+          to={`/subscriptions/${subscription._id}`}
+          state={{ subscription }}
+          className="btn-link"
+          style={{ marginLeft: "auto" }}
+        >
+          Ver detalhes →
+        </Link>
+      </div>
     </Card>
   );
 }
