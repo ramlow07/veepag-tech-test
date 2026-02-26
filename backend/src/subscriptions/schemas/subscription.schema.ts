@@ -18,7 +18,7 @@ class ProductSnapshot {
   @Prop({ required: true })
   currency: string;
 
-  @Prop({ required: true, enum: BillingCycle })
+  @Prop({ required: true, enum: BillingCycle, type: String })
   billingCycle: BillingCycle;
 }
 
@@ -40,7 +40,7 @@ export class Subscription {
   @Prop({ required: true, length: 11 })
   customerCpf: string;
 
-  @Prop({ enum: SubscriptionStatus, default: SubscriptionStatus.PENDING })
+  @Prop({ enum: SubscriptionStatus, default: SubscriptionStatus.PENDING, type: String })
   status: SubscriptionStatus;
 
   @Prop({ default: null })
