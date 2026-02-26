@@ -21,10 +21,10 @@ export class Product {
   @Prop({ required: true, default: 'BRL', uppercase: true, maxlength: 3 })
   currency: string;
 
-  @Prop({ required: true, enum: BillingCycle })
+  @Prop({ required: true, enum: BillingCycle, type: String })
   billingCycle: BillingCycle;
 
-  @Prop({ enum: ProductStatus, default: ProductStatus.ACTIVE })
+  @Prop({ enum: ProductStatus, default: ProductStatus.ACTIVE, type: String })
   status: ProductStatus;
 }
 

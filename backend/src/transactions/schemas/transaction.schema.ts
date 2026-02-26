@@ -34,10 +34,10 @@ export class Transaction {
   @Prop({ required: true })
   currency: string;
 
-  @Prop({ required: true, enum: TransactionStatus })
+  @Prop({ required: true, enum: TransactionStatus, type: String })
   status: TransactionStatus;
 
-  @Prop({ enum: FailureReason, default: null })
+  @Prop({ enum: FailureReason, default: null, type: String })
   failureReason: FailureReason;
 
   @Prop({ required: true, type: PaymentDetails })
