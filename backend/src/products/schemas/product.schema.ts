@@ -17,6 +17,7 @@ export class Product {
   @Prop({ required: true, type: Number, min: 1 })
   price: number;
 
+  // Veepag proably uses just BRL. adding "currency" prop thinking about long-term and international scale.
   @Prop({ required: true, default: 'BRL', uppercase: true, maxlength: 3 })
   currency: string;
 
